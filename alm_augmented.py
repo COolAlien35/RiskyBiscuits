@@ -20,24 +20,18 @@ DATA_PATH = 'indian_data_stats.npz'
 OUT_PATH = 'alm_results.npz'
 MAX_W = 0.2   # upper-bound on weights
 
-# ------------------------------------------------------------
 # Load data
-# ------------------------------------------------------------
 
 def load_data(path=DATA_PATH):
     data = np.load(path, allow_pickle=True)
     return data['r'], data['Sigma'], data.get('tickers', None)
 
-# ------------------------------------------------------------
 # Base objective
-# ------------------------------------------------------------
 
 def obj_base(w, Sigma, r, lam):
     return 0.5 * w.T @ Sigma @ w - lam * w @ r
 
-# ------------------------------------------------------------
 # Build ALM objective + gradient
-# ------------------------------------------------------------
 
 def make_alm_functions(Sigma, r, lam, lam_eq, rho_eq):
     """
@@ -80,9 +74,7 @@ def make_alm_functions(Sigma, r, lam, lam_eq, rho_eq):
 
     return fun, grad
 
-# ------------------------------------------------------------
 # ALM main solver
-# ------------------------------------------------------------
 
 def alm_solve(Sigma, r, lam,
               tol=1e-8,
@@ -159,9 +151,7 @@ def alm_solve(Sigma, r, lam,
 
     return w, history
 
-# ------------------------------------------------------------
 # Run ALM
-# ------------------------------------------------------------
 
 def main():
     lam = 1.5

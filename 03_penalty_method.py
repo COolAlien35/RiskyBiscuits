@@ -22,7 +22,7 @@ DATA_PATH = 'indian_data_stats.npz'
 OUT_RESULTS = 'penalty_results.npz'
 HISTORY_CSV = 'penalty_history.csv'
 
-# --- User-tunable constant: maximum allowed weight per asset ---
+#   - User-tunable constant: maximum allowed weight per asset   -
 MAX_W = 0.2
 
 def load_data(path=DATA_PATH):

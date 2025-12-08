@@ -23,14 +23,14 @@ NPZ_OUT = 'lambda_sweep_results.npz'
 LAMBDA_GRID = [0.2, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0]
 
 
-# ----------------------------- Load Data -----------------------------
+    # Load Data          
 
 def load_data(path=DATA_PATH):
     d = np.load(path, allow_pickle=True)
     return d['r'], d['Sigma'], d.get('tickers', None)
 
 
-# -------------- Projection (for exact feasibility) -------------------
+    #   Projection (for exact feasibility)               -
 
 def project_to_feasible(w_init, max_w=MAX_W):
     n = len(w_init)
@@ -41,7 +41,7 @@ def project_to_feasible(w_init, max_w=MAX_W):
     return res.x
 
 
-# ------------------------------- Main --------------------------------
+    #   Main  
 
 def main():
     r, Sigma, tickers = load_data()

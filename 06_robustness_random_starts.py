@@ -15,17 +15,17 @@ DATA_PATH = 'indian_data_stats.npz'
 OUT_CSV = 'robustness_results.csv'
 OUT_NPZ = 'robustness_results.npz'
 
-# ----------------------------------------------
+      
 # Load data
-# ----------------------------------------------
+      
 
 def load_data(path=DATA_PATH):
     d = np.load(path, allow_pickle=True)
     return d['r'], d['Sigma'], d.get('tickers', None)
 
-# ----------------------------------------------
+      
 # Generate a random feasible starting point
-# ----------------------------------------------
+      
 
 def random_feasible_w0(n, max_w=MAX_W):
     """
@@ -60,9 +60,9 @@ def random_feasible_w0(n, max_w=MAX_W):
     return x
 
 
-# ----------------------------------------------
+      
 # Projection for exact feasibility
-# ----------------------------------------------
+      
 
 def project_to_feasible(w_init, max_w=MAX_W):
     n = len(w_init)
@@ -73,9 +73,9 @@ def project_to_feasible(w_init, max_w=MAX_W):
     return res.x
 
 
-# ----------------------------------------------
+      
 # Main robustness experiment
-# ----------------------------------------------
+      
 
 def main():
     r, Sigma, tickers = load_data()
